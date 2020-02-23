@@ -1,0 +1,25 @@
+@font-face {
+  font-family: Hartwell;
+  src: url("./fonts//Hartwell/Hartwell Bold.otf");
+  font-style: normal;
+  font-weight: 700;
+}
+@font-face {
+  font-family: Hartwell;
+  src: url("./fonts/Hartwell/Hartwell Semibold.otf");
+  font-style: normal;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: Hartwell;
+  src: url("./fonts/Hartwell/Hartwell Regular.otf");
+  font-style: normal;
+  font-weight: 400;
+}
+
+div {
+  font-family: Hartwell;
+  font-weight: 700;
+  font-size: 25px;
+}
