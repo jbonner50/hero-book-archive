@@ -17,7 +17,7 @@ class SideBar extends Component {
     return (
       <div id="sidebar" className={this.moveSideBar(this.props.isExpanded)}>
         <div className="sidebar-header">
-          <h1>Results</h1>
+          <h1>Result</h1>
           <hr className="sidebar-line" />
         </div>
         <div id="search-group" className="sidebar-card">
