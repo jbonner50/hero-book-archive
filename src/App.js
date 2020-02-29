@@ -1,15 +1,44 @@
 import React, { Component } from "react";
 import NavBar from "./components/navbar";
-import Counters from "./components/counters";
+import SideBar from "./components/sidebar";
+import PDFview from "./components/pdfviewer";
 
 //render() is called whenever state changes or new props are given to it
 
 class App extends Component {
+  state = {
+    sidebarIsExpanded: true
+  };
+
+  handleMoveSideBar = () => {
+    const sidebarIsExpanded = !this.state.sidebarIsExpanded;
+    console.log(this.state.sidebarIsExpanded);
+    this.setState({ sidebarIsExpanded });
+  };
+
+  moveContent = isExpanded => {
+    let className = "active";
+    if (isExpanded) {
+      className = "";
+    }
+    return className;
+  };
+
   render() {
+    console.log(this.state.sidebarIsExpanded);
     return (
       <React.Fragment>
-        <NavBar />
-        <div id="test">Test</div>
+        <NavBar
+          onSideBarButtonPress={this.handleMoveSideBar}
+          isExpanded={this.state.sidebarIsExpanded}
+        />
+        <div
+          id="content"
+          className={this.moveContent(this.state.sidebarIsExpanded)}
+        >
+          <SideBar isExpanded={this.state.sidebarIsExpanded} />
+          <PDFview />
+        </div>
       </React.Fragment>
     );
     /*
