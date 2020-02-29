@@ -7,39 +7,19 @@ import PDFview from "./components/pdfviewer";
 
 class App extends Component {
   state = {
-    sidebarIsExpanded: true
-  };
-
-  handleMoveSideBar = () => {
-    const sidebarIsExpanded = !this.state.sidebarIsExpanded;
-    console.log(this.state.sidebarIsExpanded);
-    this.setState({ sidebarIsExpanded });
-  };
-
-  moveContent = isExpanded => {
-    let className = "active";
-    if (isExpanded) {
-      className = "";
-    }
-    return className;
+    sidebarIsExpanded: false
   };
 
   render() {
     console.log(this.state.sidebarIsExpanded);
     return (
-      <React.Fragment>
-        <NavBar
-          onSideBarButtonPress={this.handleMoveSideBar}
-          isExpanded={this.state.sidebarIsExpanded}
-        />
-        <div
-          id="content"
-          className={this.moveContent(this.state.sidebarIsExpanded)}
-        >
-          <SideBar isExpanded={this.state.sidebarIsExpanded} />
+      <div className="wrapper">
+        <SideBar />
+        <div id="content">
+          <NavBar />
           <PDFview />
         </div>
-      </React.Fragment>
+      </div>
     );
     /*
   state = {

@@ -29,8 +29,8 @@ class PDFview extends Component {
 
   render() {
     return (
-      <div id="pdfViewer">
-        <div className="d-flex justify-content-center">
+      <div id="pdf-viewer">
+        <div id="entry-btn-group" className="d-flex justify-content-center">
           <button id="prevEntry" className="arrow btn btn-secondary btn-sm">
             <i className="fas fa-arrow-circle-left"></i>
             <span> Prev Entry</span>
@@ -40,12 +40,14 @@ class PDFview extends Component {
             <i className="fas fa-arrow-circle-right"></i>
           </button>
         </div>
-        <iframe
-          title="Current PDF"
-          src="https://drive.google.com/file/d/13QS7Thp_h3qyRMWugfeCrVUyPzLKWbOM/preview"
-          height="500"
-          frameborder="0"
-        ></iframe>
+        <div id="pdf">
+          <iframe
+            title="Current PDF"
+            src="https://drive.google.com/file/d/13QS7Thp_h3qyRMWugfeCrVUyPzLKWbOM/preview"
+            frameborder="0"
+          />
+        </div>
+
         {/* <Document file={file}>
           <Page pageNumber={1} height={1500} />
         </Document> */}

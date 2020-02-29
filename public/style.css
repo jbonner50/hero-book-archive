@@ -1,88 +1,95 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
-/* Hartwell font */
-@font-face {
-  font-family: Hartwell;
-  src: url("./fonts//Hartwell/Hartwell Bold.otf");
-  font-style: normal;
-  font-weight: 700;
-}
-@font-face {
-  font-family: Hartwell;
-  src: url("./fonts/Hartwell/Hartwell Semibold.otf");
-  font-style: normal;
-  font-weight: 600;
-}
-
-@font-face {
-  font-family: Hartwell;
-  src: url("./fonts/Hartwell/Hartwell Regular.otf");
-  font-style: normal;
-  font-weight: 400;
-}
-
 * {
   font-family: "Poppins", sans-serif;
-}
-
-.book > label {
-  font-weight: bold;
-}
-
-form {
-  margin-left: 20px;
-  margin-right: 20px;
-}
-
-nav > * {
-  padding: 15px 5px;
-  margin: 0 30px;
-}
-
-#sideBarBtn,
-button.arrow {
-  background-color: #6f6f6f;
-  color: white;
-}
-
-button.arrow {
-  margin: 10px 2%;
-}
-
-#sideBarBtn,
-#logo {
-  vertical-align: middle;
-  margin: 1%;
 }
 
 .wrapper {
   display: flex;
   width: 100%;
-  align-items: stretch;
 }
 
-hr.sidebar-line {
-  background-color: #6f6f6f;
-  height: 3px;
+/* Navbar */
+
+.navbar {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
 }
+
+.navbar-nav li {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.nav-item {
+  margin: 0 10px;
+}
+
+.dropdown > button.dropdown-toggle.btn.bs-placeholder {
+  background-color: white !important;
+  color: #717a81 !important;
+  border: 1px solid #ced4da !important;
+}
+
+.dropdown > button.dropdown-toggle.btn.bs-placeholder:focus {
+  outline: 0 !important;
+  border: 1px solid rgba(0, 123, 255, 0.5) !important;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
+}
+
+/* Sidebar */
 
 #sidebar {
-  width: 30%;
+  padding: 20px;
+  width: 350px;
   position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
   z-index: 1;
-  background: #f8f9fa;
-  color: #ba2025;
-  transition: all 0.5s;
+  background: #ba2025;
+  color: #f8f9fa;
+  transition: all 0.3s;
   overflow-y: auto;
+  -ms-overflow-style: none;
 }
 
+#sidebar.active {
+  margin-left: -350px;
+}
+
+hr.sidebar-line {
+  height: 3px;
+  background-color: #a91c20;
+  border: none;
+}
+
+.search-result {
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #f8f9fa;
+  color: black;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+.search-result:hover {
+  cursor: pointer;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+/*hide scrollbar*/
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Content */
+
 #content {
-  width: 70%;
-  padding: 40px;
+  width: calc(100% - 350px);
+  padding: 20px;
   min-height: 100vh;
-  transition: all 0.5s;
+  transition: all 0.3s;
   position: absolute;
   top: 0;
   right: 0;
@@ -92,81 +99,28 @@ hr.sidebar-line {
   width: 100%;
 }
 
-#sidebar.active {
-  margin-left: -30%;
+/* pdf viewer */
+
+.arrow {
+  margin: 20px;
 }
 
-.navbar {
-  padding: 15px 10px;
-  background: #fff;
-  border: none;
-  border-radius: 15px;
-  margin-bottom: 10px;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
-}
+/* media queries */
 
-.sidebar-card {
-  background-color: white;
-  color: black;
-  border: 5px solid #ba2025;
-  border-radius: 10px;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.1s;
-}
-.search-result.sidebar-card:hover {
-  cursor: pointer;
-  transform: scale(1.02);
-}
-
-.results-header {
-  padding: 20px 0 0 0;
-}
-
-.search-result {
-  padding: 10px;
-}
-
-.from-to {
-  font-weight: 700;
-  font-size: 20px;
-}
-
-.book-entry {
-  justify-content: center;
-  align-items: center;
-}
-
-#result-group > * {
-  margin: 0 0 20px 0;
-}
-/* .search-result {
-  margin: 15px 0;
-  background-color: white;
-  color: black;
-  border: 5px solid rgb(218, 51, 57);
-  border-radius: 10px;
-  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2);
-} */
-#search-bar {
-  padding-top: 1rem;
-}
-
-div#btn-group > button {
-  margin: 0 0 0.5rem 0.5rem;
-}
-
-#chevron {
-  transition: 0.3s;
-}
-#chevron.active {
-  transform: rotate(180deg);
-}
-
-.filter-year {
-  text-align: center;
-}
-
-#navbar-container.container {
-  margin-right: 0;
-  margin-left: 0;
+@media (max-width: 1070px) {
+  #sidebar {
+    margin-left: -350px;
+  }
+  #sidebar.active {
+    margin-left: 0;
+  }
+  #content {
+    width: 100%;
+  }
+  #content.active {
+    width: calc(100% - 350px);
+  }
+  #sidebarCollapse span {
+    display: none;
+  }
 }
