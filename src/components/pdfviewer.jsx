@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Document, Page, pdfjs } from "react-pdf";
+import file from "../pdfs/applicationCSE.pdf";
 
 class PDFview extends Component {
   constructor(props) {
@@ -27,6 +29,10 @@ class PDFview extends Component {
     }
   }
 
+  componentDidMount() {
+    pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+  }
+
   render() {
     return (
       <div id="pdf-viewer">
@@ -48,9 +54,9 @@ class PDFview extends Component {
           />
         </div>
 
-        {/* <Document file={file}>
+        <Document file={file}>
           <Page pageNumber={1} height={1500} />
-        </Document> */}
+        </Document>
       </div>
     );
   }

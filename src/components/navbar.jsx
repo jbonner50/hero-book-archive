@@ -14,21 +14,42 @@ class NavBar extends Component {
     return checkboxes;
   };
 
+  rotateChevron = collapsed => {
+    let className = "fas fa-chevron-left";
+    if (collapsed) {
+      className += " collapsed";
+    }
+    return className;
+  };
+
   render() {
     return (
       <nav className="navbar navbar-expand-md navbar-light bg-light">
-        <a className="navbar-brand" href="#">
-          <img src={icon} alt="SAC Icon" height="60px" />
-        </a>
+        <div id="menu-btn-group">
+          <button
+            id="sidebar-btn"
+            className="nav-item btn btn-secondary"
+            onClick={() => this.props.onSidebarMove()}
+          >
+            <i
+              id="chevron"
+              className={this.rotateChevron(this.props.collapsed)}
+            />
+          </button>
+
+          <a href="#" className="nav-item">
+            <img src={icon} alt="SAC Icon" height="50px" />
+          </a>
+        </div>
         <button
-          className="navbar-toggler"
+          id="navbar-toggler-btn"
+          className="btn btn-secondary nav-item navbar-toggler"
           type="button"
           data-toggle="collapse"
           data-target="#navbar"
         >
-          <span className="navbar-toggler-icon"></span>
+          <i class="fas fa-bars" />
         </button>
-
         <div className="collapse navbar-collapse" id="navbar">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">

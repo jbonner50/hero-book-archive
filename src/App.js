@@ -2,86 +2,44 @@ import React, { Component } from "react";
 import NavBar from "./components/navbar";
 import SideBar from "./components/sidebar";
 import PDFview from "./components/pdfviewer";
+import Footer from "./components/footer";
 
 //render() is called whenever state changes or new props are given to it
 
 class App extends Component {
   state = {
-    sidebarIsExpanded: false
+    sidebarCollapsed: true
+  };
+
+  handleSidebarMove = () => {
+    const sidebarCollapsed = !this.state.sidebarCollapsed;
+    this.setState({ sidebarCollapsed });
+  };
+
+  moveContent = collapsed => {
+    let className = "";
+    if (collapsed) {
+      className += " collapsed";
+    }
+    return className;
   };
 
   render() {
-    console.log(this.state.sidebarIsExpanded);
     return (
       <div className="wrapper">
-        <SideBar />
-        <div id="content">
-          <NavBar />
+        <SideBar collapsed={this.state.sidebarCollapsed} />
+        <div
+          id="content"
+          className={this.moveContent(this.state.sidebarCollapsed)}
+        >
+          <NavBar
+            onSidebarMove={this.handleSidebarMove}
+            collapsed={this.state.sidebarCollapsed}
+          />
           <PDFview />
         </div>
       </div>
     );
-    /*
-  state = {
-    counters: [
-      { id: 1, value: 0 },
-      { id: 2, value: 0 },
-      { id: 3, value: 0 },
-      { id: 4, value: 0 }
-    ]
-  };
-
-  constructor(props) {
-    super(props);
-    console.log("app-constructor");
-    //can't call setState here
-    //this.state = this.props.something
-    //can only call this.props if props is in super and constructor
-  }
-
-  componentDidMount() {
-    //ajax call can be placed here
-    console.log("app-mounted");
-  }
-
-  handleIncrement = counter => {
-    const counters = [...this.state.counters];
-    const index = counters.indexOf(counter);
-    counters[index] = { ...counter };
-    counters[index].value++;
-    this.setState({ counters });
-  };
-
-  handleReset = () => {
-    const counters = this.state.counters.map(c => {
-      c.value = 0;
-      return c;
-    });
-    this.setState({ counters });
-  };
-
-  handleDelete = counterId => {
-    const counters = this.state.counters.filter(c => c.id !== counterId);
-    this.setState({ counters });
-  };
-
-  render() {
-    console.log("app-rendered");
-    return (
-      <React.Fragment>
-        <NavBar
-          totalCounters={this.state.counters.filter(c => c.value > 0).length}
-        />
-        <Counters
-          counters={this.state.counters}
-          onReset={this.handleReset}
-          onIncrement={this.handleIncrement}
-          onDelete={this.handleDelete}
-        />
-      </React.Fragment>
-    );
-	}
-	*/
   }
 }
 
