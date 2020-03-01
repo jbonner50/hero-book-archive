@@ -12,6 +12,23 @@ class SideBar extends Component {
     return className;
   };
 
+  generateSearchResults = (from, to, year, entry, book) => {
+    let results = [];
+    for (entry; entry <= 10; entry++) {
+      results.push(
+        <SearchResult
+          from={from}
+          to={to}
+          year={year}
+          entry={entry}
+          book={book}
+        />
+      );
+    }
+
+    return results;
+  };
+
   render() {
     return (
       <div id="sidebar" className={this.moveSidebar(this.props.collapsed)}>
@@ -20,16 +37,7 @@ class SideBar extends Component {
           <hr className="sidebar-line" />
         </div>
         <div id="search-results">
-          <SearchResult />
-          <SearchResult />
-          <SearchResult />
-          <SearchResult />
-          <SearchResult />
-          <SearchResult />
-          <SearchResult />
-          <SearchResult />
-          <SearchResult />
-          <SearchResult />
+          {this.generateSearchResults("Michael", "Jackson", 2020, 5, 3)}
         </div>
       </div>
     );

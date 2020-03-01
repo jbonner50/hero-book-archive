@@ -3,15 +3,11 @@ import { Document, Page, pdfjs } from "react-pdf";
 import file from "../pdfs/applicationCSE.pdf";
 
 class PDFview extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      numPages: null,
-      pageNumber: 1,
-      scale: 1.0
-    };
-  }
+  state = {
+    numPages: null,
+    pageNumber: 1,
+    scale: 1.0
+  };
   // Custom pagination component
   onPageChange(pageNumber) {
     this.setState({ pageNumber: pageNumber + 1 });
@@ -47,16 +43,10 @@ class PDFview extends Component {
           </button>
         </div>
         <div id="pdf">
-          <iframe
-            title="Current PDF"
-            src="https://drive.google.com/file/d/13QS7Thp_h3qyRMWugfeCrVUyPzLKWbOM/preview"
-            frameborder="0"
-          />
+          <Document file={file}>
+            <Page pageNumber={1} height={1500} />
+          </Document>
         </div>
-
-        <Document file={file}>
-          <Page pageNumber={1} height={1500} />
-        </Document>
       </div>
     );
   }

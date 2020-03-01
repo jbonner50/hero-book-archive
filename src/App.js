@@ -32,11 +32,14 @@ class App extends Component {
           id="content"
           className={this.moveContent(this.state.sidebarCollapsed)}
         >
-          <NavBar
-            onSidebarMove={this.handleSidebarMove}
-            collapsed={this.state.sidebarCollapsed}
-          />
-          <PDFview />
+          <div id="nav-pdf">
+            <NavBar
+              onSidebarMove={this.handleSidebarMove}
+              collapsed={this.state.sidebarCollapsed}
+            />
+            <PDFview />
+          </div>
+          <Footer />
         </div>
       </div>
     );

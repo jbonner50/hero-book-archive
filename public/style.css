@@ -84,8 +84,17 @@ hr.sidebar-line {
   border: none;
 }
 
+/*hide scrollbar*/
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+/*search results */
 .search-result {
-  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
   margin-bottom: 20px;
   background-color: #f8f9fa;
   color: black;
@@ -99,16 +108,30 @@ hr.sidebar-line {
   transform: scale(1.05);
 }
 
-/*hide scrollbar*/
-.sidebar::-webkit-scrollbar {
-  display: none;
+.search-result > .address {
+  float: left;
+  width: 50%;
+}
+
+.search-result > .book-entry {
+  float: right;
+  width: 50%;
+}
+
+span.from,
+span.to,
+span.year {
+  font-weight: 600;
+}
+
+.book-entry {
+  text-align: center;
 }
 
 /* Content */
 
 #content {
   width: calc(100% - 350px);
-  padding: 20px;
   min-height: 100vh;
   transition: all 0.3s;
   position: absolute;
@@ -125,6 +148,23 @@ hr.sidebar-line {
 
 .arrow {
   margin: 20px;
+}
+
+#nav-pdf {
+  padding: 20px;
+}
+
+/* footer */
+
+#footer {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  background-color: #f8f9fa;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 40px;
 }
 
 /* media queries */

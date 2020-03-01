@@ -5,6 +5,8 @@ import icon from "../media/SACiconRED.png";
 //can't use lifecycle hooks
 
 class NavBar extends Component {
+  state = {};
+
   generateCheckboxes = (startYear, endYear) => {
     let checkboxes = [];
     for (var year = startYear; year >= endYear; year--) {
@@ -51,62 +53,46 @@ class NavBar extends Component {
           <i class="fas fa-bars" />
         </button>
         <div className="collapse navbar-collapse" id="navbar">
-          <ul className="navbar-nav mr-auto">
-            <li className="nav-item">
-              <input
-                id="search-bar"
-                className="form-control"
-                type="text"
-                placeholder="Search by name"
-              />
-            </li>
+          <form name="search-entries">
+            <ul className="navbar-nav mr-auto">
+              <li className="nav-item">
+                <input
+                  id="search-bar"
+                  className="form-control"
+                  type="text"
+                  placeholder="Search by name"
+                />
+              </li>
 
-            <li className="nav-item">
-              <select
-                name="filter-year"
-                id="filter-year"
-                className="selectpicker"
-                title="Filter Year"
-                data-selected-text-format="count > 4"
-                data-actions-box="true"
-                data-style="btn"
-                multiple
-              >
-                {this.generateCheckboxes(2020, 2010)}
-              </select>
-            </li>
+              <li className="nav-item">
+                <select
+                  name="filter-year"
+                  id="filter-year"
+                  className="selectpicker"
+                  title="Filter Year"
+                  data-selected-text-format="count > 4"
+                  data-actions-box="true"
+                  data-style="btn"
+                  multiple
+                >
+                  {this.generateCheckboxes(2020, 2010)}
+                </select>
+              </li>
 
-            <li class="nav-item">
-              <button id="search-btn" type="submit" className="btn btn-primary">
-                Search
-              </button>
-            </li>
-          </ul>
+              <li class="nav-item">
+                <button
+                  id="search-btn"
+                  type="submit"
+                  className="btn btn-primary"
+                >
+                  Search
+                </button>
+              </li>
+            </ul>
+          </form>
         </div>
       </nav>
     );
-
-    {
-      /* <button
-          type="button"
-          id="sideBarBtn"
-          className="btn "
-          onClick={() => this.props.onSideBarButtonPress()}
-        >
-          <i
-            id="chevron"
-            className={this.rotateChevron(this.props.isExpanded)}
-          ></i>
-        </button>
-        <form>
-          <SearchBar />
-        </form>
-
-        <a href="https://sacgrading.com/" className="navbar-brand m-2">
-          <img id="icon" src={icon} alt="SAC Icon" height="80" />
-        </a>
-      </nav> */
-    }
   }
 }
 
