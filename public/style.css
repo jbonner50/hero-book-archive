@@ -79,8 +79,26 @@
 #sidebar.active {
   left: 0;
 }
+
 #dismiss {
-  display: none;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  background: #e43238;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  border-radius: 5px;
+}
+
+#dismiss:hover {
+  background: #fff;
+  color: #da252b;
 }
 
 hr.sidebar-line {
@@ -181,28 +199,6 @@ span.year {
   #content,
   #content.active {
     width: 100%;
-  }
-
-  #dismiss {
-    display: inherit;
-    width: 35px;
-    height: 35px;
-    line-height: 35px;
-    text-align: center;
-    background: #e43238;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    -webkit-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    transition: all 0.3s;
-    border-radius: 5px;
-  }
-
-  #dismiss:hover {
-    background: #fff;
-    color: #da252b;
   }
 
   .overlay {
