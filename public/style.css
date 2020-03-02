@@ -168,17 +168,20 @@ span.year {
 }
 
 /* media queries */
-
+/*
 @media (max-width: 1120px) {
-  #content.collapsed {
-    width: 100%;
-  }
-
   #content {
     width: 100%;
   }
-
-  #sidebarCollapse span {
-    display: none;
+  #content.collapsed {
+    width: 100%;
+  }
+  #sidebar {
+  }
+}
+*/
+@media (min-width: 768px) {
+  .navbar-expand-md .navbar-toggler {
+    display: none !important;
   }
 }

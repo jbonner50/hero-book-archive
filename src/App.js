@@ -27,7 +27,7 @@ class App extends Component {
   render() {
     return (
       <div className="wrapper">
-        <SideBar collapsed={this.state.sidebarCollapsed} />
+        <SideBar />
         <div
           id="content"
           className={this.moveContent(this.state.sidebarCollapsed)}

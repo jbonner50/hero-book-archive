@@ -26,7 +26,7 @@ class NavBar extends Component {
 
   render() {
     return (
-      <nav className="navbar navbar-expand-md navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div id="menu-btn-group">
           <a href="#" className="nav-item">
             <img src={icon} alt="SAC Icon" height="50px" />
@@ -53,7 +53,7 @@ class NavBar extends Component {
         </button>
         <div className="collapse navbar-collapse" id="navbar">
           <form name="search-entries">
-            <ul className="navbar-nav mr-auto">
+            <ul className="navbar-nav mr-0">
               <li className="nav-item">
                 <input
                   id="search-bar"
