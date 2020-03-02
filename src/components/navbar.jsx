@@ -5,7 +5,9 @@ import icon from "../media/SACiconRED.png";
 //can't use lifecycle hooks
 
 class NavBar extends Component {
-  state = {};
+  state = {
+    chevronRotated: false
+  };
 
   generateCheckboxes = (startYear, endYear) => {
     let checkboxes = [];
@@ -14,14 +16,6 @@ class NavBar extends Component {
     }
 
     return checkboxes;
-  };
-
-  rotateChevron = collapsed => {
-    let className = "fas fa-chevron-left";
-    if (collapsed) {
-      className += " collapsed";
-    }
-    return className;
   };
 
   render() {
@@ -36,10 +30,7 @@ class NavBar extends Component {
             className="nav-item btn btn-secondary"
             onClick={() => this.props.onSidebarMove()}
           >
-            <i
-              id="chevron"
-              className={this.rotateChevron(this.props.collapsed)}
-            />
+            <i id="bars" className="fas fa-bars" />
           </button>
         </div>
         <button
@@ -49,7 +40,7 @@ class NavBar extends Component {
           data-toggle="collapse"
           data-target="#navbar"
         >
-          <i class="fas fa-bars" />
+          <i id="chevron" className="fas fa-chevron-down" />
         </button>
         <div className="collapse navbar-collapse" id="navbar">
           <form name="search-entries">

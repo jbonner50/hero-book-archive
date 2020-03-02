@@ -4,10 +4,10 @@ import SearchResult from "./searchresult";
 class SideBar extends Component {
   state = {};
 
-  moveSidebar = collapsed => {
+  moveSidebar = active => {
     let className = "sidebar";
-    if (collapsed) {
-      className += " collapsed";
+    if (active) {
+      className += " active";
     }
     return className;
   };
@@ -31,7 +31,10 @@ class SideBar extends Component {
 
   render() {
     return (
-      <div id="sidebar" className={this.moveSidebar(this.props.collapsed)}>
+      <div id="sidebar" className={this.moveSidebar(this.props.sidebarActive)}>
+        <div id="dismiss" onClick={() => this.props.onSidebarMove()}>
+          <i class="fas fa-arrow-left"></i>
+        </div>
         <div className="sidebar-header">
           <h1>Search Results</h1>
           <hr className="sidebar-line" />

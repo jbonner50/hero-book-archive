@@ -8,40 +8,48 @@ import Footer from "./components/footer";
 
 class App extends Component {
   state = {
-    sidebarCollapsed: true
+    sidebarActive: false
   };
 
   handleSidebarMove = () => {
-    const sidebarCollapsed = !this.state.sidebarCollapsed;
-    this.setState({ sidebarCollapsed });
+    const sidebarActive = !this.state.sidebarActive;
+    this.setState({ sidebarActive });
   };
 
-  moveContent = collapsed => {
-    let className = "";
-    if (collapsed) {
-      className += " collapsed";
+  addActive = (prevClass, active) => {
+    let className = prevClass;
+    if (active) {
+      className += " active";
     }
     return className;
   };
 
   render() {
     return (
-      <div className="wrapper">
-        <SideBar />
-        <div
-          id="content"
-          className={this.moveContent(this.state.sidebarCollapsed)}
-        >
-          <div id="nav-pdf">
-            <NavBar
-              onSidebarMove={this.handleSidebarMove}
-              collapsed={this.state.sidebarCollapsed}
-            />
-            <PDFview />
+      <React.Fragment>
+        <div className="wrapper">
+          <SideBar
+            sidebarActive={this.state.sidebarActive}
+            onSidebarMove={this.handleSidebarMove}
+          />
+          <div
+            id="content"
+            className={this.addActive("", this.state.sidebarActive)}
+          >
+            <div id="nav-pdf">
+              <NavBar
+                onSidebarMove={this.handleSidebarMove}
+                sidebarActive={this.state.sidebarActive}
+              />
+              <PDFview />
+            </div>
+            <Footer />
           </div>
-          <Footer />
         </div>
-      </div>
+        <div
+          className={this.addActive("overlay", this.state.sidebarActive)}
+        ></div>
+      </React.Fragment>
     );
   }
 }
