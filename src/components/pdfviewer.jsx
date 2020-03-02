@@ -43,9 +43,9 @@ class PDFview extends Component {
           </button>
         </div>
         <div id="pdf">
-          <Document file={file}>
+          {/* <Document file={file}>
             <Page pageNumber={1} height={1500} />
-          </Document>
+          </Document> */}
         </div>
       </div>
     );

@@ -71,7 +71,6 @@ hr.sidebar-line {
   top: 0;
   left: 0;
   height: 100vh;
-  z-index: 1;
   background: #f8f9fa;
   color: #ba2025;
   transition: all 0.5s;
@@ -82,6 +81,7 @@ hr.sidebar-line {
   width: 70%;
   padding: 40px;
   min-height: 100vh;
+  z-index: 1;
   transition: all 0.5s;
   position: absolute;
   top: 0;
@@ -92,9 +92,9 @@ hr.sidebar-line {
   width: 100%;
 }
 
-#sidebar.active {
+/* #sidebar.active {
   margin-left: -30%;
-}
+} */
 
 .navbar {
   padding: 15px 10px;

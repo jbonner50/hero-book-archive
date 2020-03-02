@@ -51,17 +51,15 @@
   top: 0;
   left: 0;
   height: 100vh;
-  z-index: 1;
   background: #ba2025;
   color: #f8f9fa;
-  transition: all 0.3s;
   overflow-y: auto;
   -ms-overflow-style: none;
 }
 
-#sidebar.collapsed {
+/* #sidebar.collapsed {
   margin-left: -350px;
-}
+} */
 
 #chevron {
   transition: 0.3s ease-in-out;
@@ -133,11 +131,13 @@ span.year {
 #content {
   width: calc(100% - 350px);
   min-height: 100vh;
-  transition: all 0.3s;
+  z-index: 1;
+  transition: all 0.5s;
   position: absolute;
   top: 0;
   right: 0;
   overflow: hidden;
+  background-color: white;
 }
 
 #content.collapsed {
@@ -169,20 +169,15 @@ span.year {
 
 /* media queries */
 
-@media (max-width: 1120px) {
-  #sidebar {
-    margin-left: -350px;
-  }
-  #sidebar.collapsed {
-    margin-left: 0;
+/* @media (max-width: 1120px) {
+  #content.collapsed {
+    width: calc(100% - 350px);
   }
   #content {
     width: 100%;
   }
-  #content.collapsed {
-    width: calc(100% - 350px);
-  }
+
   #sidebarCollapse span {
     display: none;
   }
-}
+} */

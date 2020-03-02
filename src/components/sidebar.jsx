@@ -37,7 +37,7 @@ class SideBar extends Component {
           <hr className="sidebar-line" />
         </div>
         <div id="search-results">
-          {this.generateSearchResults("Michael", "Jackson", 2020, 5, 3)}
+          {this.generateSearchResults("Michael", "Jackson", 2020, 9, 3)}
         </div>
       </div>
     );
