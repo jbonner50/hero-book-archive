@@ -169,10 +169,11 @@ span.year {
 
 /* media queries */
 
-/* @media (max-width: 1120px) {
+@media (max-width: 1120px) {
   #content.collapsed {
-    width: calc(100% - 350px);
+    width: 100%;
   }
+
   #content {
     width: 100%;
   }
@@ -180,4 +181,4 @@ span.year {
   #sidebarCollapse span {
     display: none;
   }
-} */
+}

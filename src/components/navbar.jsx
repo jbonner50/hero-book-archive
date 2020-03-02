@@ -28,6 +28,9 @@ class NavBar extends Component {
     return (
       <nav className="navbar navbar-expand-md navbar-light bg-light">
         <div id="menu-btn-group">
+          <a href="#" className="nav-item">
+            <img src={icon} alt="SAC Icon" height="50px" />
+          </a>
           <button
             id="sidebar-btn"
             className="nav-item btn btn-secondary"
@@ -38,10 +41,6 @@ class NavBar extends Component {
               className={this.rotateChevron(this.props.collapsed)}
             />
           </button>
-
-          <a href="#" className="nav-item">
-            <img src={icon} alt="SAC Icon" height="50px" />
-          </a>
         </div>
         <button
           id="navbar-toggler-btn"
