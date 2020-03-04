@@ -17,6 +17,7 @@ class SideBar extends Component {
     for (entry; entry <= 10; entry++) {
       results.push(
         <SearchResult
+          key={entry} //change this
           from={from}
           to={to}
           year={year}
@@ -33,7 +34,7 @@ class SideBar extends Component {
     return (
       <div id="sidebar" className={this.moveSidebar(this.props.sidebarActive)}>
         <div id="dismiss" onClick={() => this.props.onSidebarMove()}>
-          <i class="fas fa-arrow-left"></i>
+          <i className="fas fa-arrow-left"></i>
         </div>
         <div className="sidebar-header">
           <h1>Search Results</h1>

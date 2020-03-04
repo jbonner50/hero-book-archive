@@ -8,7 +8,9 @@ import Footer from "./components/footer";
 
 class App extends Component {
   state = {
-    sidebarActive: false
+    sidebarActive: false,
+    search: "",
+    filter: []
   };
 
   handleSidebarMove = () => {
@@ -22,6 +24,53 @@ class App extends Component {
       className += " active";
     }
     return className;
+  };
+
+  handleSearch = e => {
+    this.setState({ search: e.target.value });
+  };
+
+  handleFilter = e => {
+    const options = e.target.options;
+    var years = [];
+    for (var i = 0; i < options.length; i++) {
+      if (options[i].selected) {
+        years.push(options[i].value);
+      }
+    }
+    this.setState({ filter: years });
+  };
+
+  handleSubmit = (e, search, filter) => {
+    e.preventDefault();
+
+    const options = filter.options;
+    var years = [];
+    for (var i = 0; i < options.length; i++) {
+      if (options[i].selected) {
+        years.push(options[i].value);
+      }
+    }
+    this.setState({ filter: years });
+
+    this.setState({ search: search.value });
+    console.log("Search Submitted");
+  };
+
+  handleSubmit = (e, search, filter) => {
+    e.preventDefault();
+
+    const options = filter.options;
+    var years = [];
+    for (var i = 0; i < options.length; i++) {
+      if (options[i].selected) {
+        years.push(options[i].value);
+      }
+    }
+    this.setState({ filter: years });
+
+    this.setState({ search: search.value });
+    console.log("Search Submitted");
   };
 
   render() {
@@ -38,8 +87,12 @@ class App extends Component {
           >
             <div id="nav-pdf">
               <NavBar
-                onSidebarMove={this.handleSidebarMove}
                 sidebarActive={this.state.sidebarActive}
+                onSidebarMove={this.handleSidebarMove}
+                onSubmit={this.handleSubmit}
+                onSearch={this.handleSearch}
+                onFilter={this.handleFilter}
+                onClear={this.handleClear}
               />
               <PDFview />
             </div>

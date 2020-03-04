@@ -12,10 +12,18 @@ class NavBar extends Component {
   generateCheckboxes = (startYear, endYear) => {
     let checkboxes = [];
     for (var year = startYear; year >= endYear; year--) {
-      checkboxes.push(<option value={year}>{year}</option>);
+      checkboxes.push(
+        <option key={year} value={year}>
+          {year}
+        </option>
+      );
     }
 
     return checkboxes;
+  };
+
+  onClearSearch = search => {
+    search.value = "";
   };
 
   render() {
@@ -43,15 +51,35 @@ class NavBar extends Component {
           <i id="chevron" className="fas fa-chevron-down" />
         </button>
         <div className="collapse navbar-collapse" id="navbar">
-          <form name="search-entries">
+          <form
+            name="search-entries"
+            onSubmit={e => this.props.onSubmit(e, this.search, this.filter)}
+            method="GET"
+          >
+            {/*onSubmit={this.handleSubmit}*/}
             <ul className="navbar-nav mr-0">
               <li className="nav-item">
                 <input
                   id="search-bar"
+                  name="search-bar"
                   className="form-control"
                   type="text"
                   placeholder="Search by name"
+                  ref={el => (this.search = el)}
+                  value={this.state.search}
+                  //onChange={this.props.onSearch}
                 />
+              </li>
+
+              <li className="nav-item">
+                <button
+                  id="clear-btn"
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={() => this.onClearSearch(this.search)}
+                >
+                  <i className="fas fa-trash-alt"></i>
+                </button>
               </li>
 
               <li className="nav-item">
@@ -63,13 +91,16 @@ class NavBar extends Component {
                   data-selected-text-format="count > 4"
                   data-actions-box="true"
                   data-style="btn"
+                  // value={this.state.filter}
+                  // onChange={this.props.onFilter}
+                  ref={el => (this.filter = el)}
                   multiple
                 >
                   {this.generateCheckboxes(2020, 2010)}
                 </select>
               </li>
 
-              <li class="nav-item">
+              <li className="nav-item">
                 <button
                   id="search-btn"
                   type="submit"
