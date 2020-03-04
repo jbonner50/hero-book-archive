@@ -6,8 +6,10 @@ class Footer extends Component {
     return (
       <div id="footer">
         Site created by&nbsp;
-        <a href="https://jbonner50.github.io/">Jeff Bonner</a>. Documents
-        collected by Noelle Daumeyer.
+        <a href="https://jbonner50.github.io/" target="_blank">
+          Jeff Bonner
+        </a>
+        . Documents collected by Noelle Daumeyer.
       </div>
     );
   }
